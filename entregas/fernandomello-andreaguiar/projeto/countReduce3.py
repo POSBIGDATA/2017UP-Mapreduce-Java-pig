@@ -1,5 +1,13 @@
 #!/usr/bin/python3
 import sys
+from nltk.corpus import wordnet as wn
+from nltk import pos_tag
+import nltk
+
+#as bases do NLTK necessárias para a execução deste projeto são: 'punkt' e 'averaged_perceptron_tagger'. Elas poderão ser instaladas a partir do código Python da seguinte forma:
+
+#nltk.download('punkt')
+#nltk.download('averaged_perceptron_tagger')
 
 (lastKey, sum, listagem, listagemNova)=(None, 0, {}, {})
 
@@ -18,6 +26,13 @@ for line in sys.stdin:
 if lastKey:
 	listagem[lastKey] = sum
 
-for key, value in sorted(listagem.items(), key=lambda listagem: listagem[1], reverse=True):
-	print (key + '\t' + str(value))
+for palavra, contagem in listagem.items():
+	words = nltk.word_tokenize(palavra)
+	classificacao = pos_tag(words)
+	for word in classificacao:
+		#removendo as preposicoes do texto
+		if (word[1] != 'IN'):
+			listagemNova[word[0]] = contagem
 
+for key, value in sorted(listagemNova.items(), key=lambda listagemNova: listagemNova[1], reverse=True):
+	print (key + '\t' + str(value))
