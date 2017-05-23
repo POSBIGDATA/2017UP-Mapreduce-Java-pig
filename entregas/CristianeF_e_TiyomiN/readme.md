@@ -5,5 +5,4 @@
   2. Hadoop Streaming
   
  * Projeto:
-  1. Listar as 1.500 palavras mais frequentes em um livro
-  
+  Listar as 1.500 palavras mais frequentes em um livro
