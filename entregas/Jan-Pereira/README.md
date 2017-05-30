@@ -92,3 +92,5 @@ hdfs dfs -get <path_hdfs_output> <path_local_output>
 
 
 Obs: Os códigos-fontes e os livros utilizados na solução deste problema em forma de exercícios utilizando python e pig podem ser encontrados na pasta projeto.
+
+Na pasta projeto/output encontra-se um exemplo da saída para pesquisa e contagem da palavra "make" em cada um dos livros da biblioteca lit2go.
